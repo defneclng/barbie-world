@@ -1,0 +1,398 @@
+/* Stile per Barbie World by Defne */
+/* ------------------ VARIABILI ------------------ */
+:root {
+    --barbie-pink: #ff69b4;
+    --barbie-dark-pink: #ff1493;
+    --barbie-soft-pink: #ff66b2;
+    --barbie-bg: #fff0f5;
+    --barbie-white: #ffffff;
+    --barbie-border: #ffc0cb;
+    --barbie-omb: #f37abd;
+    --barbie-black: #000000;
+    --barbie-grey: #333;
+    --barbie-ombre: #ffe4e1;
+    --font-heading: 'Pacifico', cursive;
+    --font-body: 'Lato', sans-serif; 
+    --barbie-accent: #ffb6c1;
+}  
+
+/* ------------------ BODY ------------------ */
+body {
+    font-family: var(--font-body); 
+    margin: 0;
+    padding: 0;
+    background-color: var(--barbie-bg); 
+    color: var(--barbie-grey);
+}
+
+/* ------------------ HEADER E NAV ------------------ */
+header h1 {
+    font-size: 48px; 
+}
+
+header {
+    font-family: var(--font-heading); 
+    background-color: var(--barbie-dark-pink);
+    padding: 15px 20px;
+    text-align: center;
+    color: var(--barbie-white);
+    position: relative;      
+    z-index: 1000;    
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: var(--barbie-white);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* ------------------ FOOTER ------------------ */
+footer {
+    background-color: var(--barbie-pink);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    font-family: var(--barbie-font);
+    font-size: 16px;
+    margin-top: 40px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ------------------ SEZIONI GENERALI ------------------ */
+section {
+    padding: 20px;
+    text-align: center;
+}
+
+img {
+    width: 150px;
+    height: auto;
+    margin: 10px;
+}
+
+/* ------------------ HOME ------------------ */
+/* Slideshow Barbie */
+.slideshow-wrapper {
+    display: flex;
+    align-items: center;    
+    justify-content: center;
+    gap: 15px;             
+    margin: 20px auto;    
+    padding: 0 10px;      
+}
+
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    max-width: 450px;
+    overflow: hidden;  
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15); 
+}
+
+.slide {
+    width: 100%;    
+    display: none; 
+    vertical-align: middle; 
+}
+
+.slide:first-child {
+    display: block;
+}
+
+@keyframes fade {
+    from { opacity: 0.5; }
+    to { opacity: 1; }
+}
+
+.slide {
+    animation: fade 1.5s;
+}
+
+.prev, .next {
+    background-color: var(--barbie-pink);
+    color: var(--barbie-white);
+    border: none;
+    padding: 10px; 
+    cursor: pointer;
+    font-size: 24px;
+    border-radius: 50%; 
+    transition: background-color 0.3s, transform 0.2s;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none; 
+}
+
+.prev:hover, .next:hover {
+    background-color: var(--barbie-dark-pink);
+    transform: scale(1.1); 
+}
+
+/* ------------------ MOVIES ------------------ */
+/* per la barra di ricerca */
+#searchInput {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid var(--barbie-pink);
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: var(--barbie-white);
+    color: var(--barbie-grey);
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+#searchInput:focus {
+    border-color: var(--barbie-dark-pink);
+}
+
+/* Tabella dei film */
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: linear-gradient(to bottom, #fff0f5, #ffe4e1);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(255, 105, 180, 0.4);
+}
+
+table, th, td {
+    border: 2px solid var(--barbie-pink);
+    padding: 12px;
+    font-size: 16px;
+    font-family: var(--barbie-font);
+    transition: background-color 0.3s ease;
+}
+
+th {
+    background-color: var(--barbie-border);
+    color: var(--barbie-white);
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Trailer del film di barbie */
+.iframe {
+    text-align: center;
+}
+  
+.trailer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0;
+}
+
+/* Embed spotify Barbie playlist */
+.barbie-trailer-spotify {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 40px auto;
+    max-width: 900px;
+    flex-wrap: wrap;
+}
+  
+.barbie-trailer-spotify iframe {
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    text-align: center;
+}
+
+.modal-content {
+    background: var(--barbie-white);
+    margin: 10% auto;
+    padding: 20px;
+    width: 50%;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+/* Effetto zoom al passaggio del mouse sui film */
+#movieImage {
+    transition: transform 0.3s ease-in-out;
+}
+
+#movieImage:hover {
+    transform: scale(1.1);
+}
+
+/* sezione cast + galleria affiancata */
+.barbie-cast-gallery {
+    padding: 30px;
+    background-color: var(--barbie-bg);
+    text-align: center;
+}
+  
+.cast-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+    align-items: start;
+    margin-top: 20px;
+}
+  
+.cast-list {
+    text-align: left;
+    font-family: var(--barbie-font);
+    font-size: 16px;
+    padding-left: 30px;
+    list-style: none;
+}
+  
+.cast-list li {
+    margin: 10px 0;
+}
+  
+.cast-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 15px;
+}
+  
+.cast-gallery img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(255, 105, 180, 0.3);
+}
+
+/* ------------------ CONTACT ------------------ */
+/* per la pagina dei contatti */
+h2 {
+    text-align: center;
+    color: var(--barbie-dark-pink); 
+    font-size: 36px;
+    font-family: var(--font-heading);
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); 
+}
+
+form {
+    max-width: 400px;
+    padding: 20px;
+    background: var(--barbie-white);
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+}
+
+label {
+    font-size: 18px;
+    color: var(--barbie-soft-pink);
+    display: block;
+    margin-bottom: 10px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 2px solid var(--barbie-soft-pink);
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    background-color: var(--barbie-soft-pink);
+    color: var(--barbie-white);
+    padding: 14px;
+    border: none;
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+button:hover {
+    background-color: #ff3399;
+}
+
+#responseMessage {
+    margin-top: 20px;
+    color: #00cc66;
+    text-align: center;
+    font-size: 18px;
+}
+
+/*          RESPONSIVE DESIGN (tutti i dispositivi)         */
+
+/* ----- Tablet e di piu (Minimo 768px) ----- */
+@media screen and (min-width: 768px) {
+    body {
+        font-size: 18px; 
+    }
+
+    /* --- Menu (navigazione) --- */
+    nav ul {
+        flex-direction: row;
+        justify-content: center;
+        gap: 25px;
+    }
+
+    /* --- Barbie Movie Cast --- */
+    .cast-grid {
+        grid-template-columns: 1fr 2fr; 
+        text-align: left; 
+    }
+
+    /* --- Spotify & Trailer --- */
+    .barbie-trailer-spotify {
+        flex-direction: row; 
+        flex-wrap: nowrap;   
+        gap: 30px;
+    }
+
+    /* --- Slideshow --- */
+    .slideshow-container {
+        max-width: 600px; 
+    }
+}
+
+
+/* ----- Desktop e di piu (Minimo 1024px) ----- */
+@media screen and (min-width: 1024px) {
+    form {
+        max-width: 550px;
+    }
+}
