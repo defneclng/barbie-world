@@ -1,9 +1,9 @@
 <template>
-  <!-- Bootstrap'in "container" sınıfı ile bölümü sarmalayarak kenar boşlukları sağlıyoruz -->
+  <!-- Bootstrap "container" section -->
   <div class="container my-5">
     <div id="barbieCarousel" class="carousel slide" data-bs-ride="carousel">
       
-      <!-- Carousel Indicators (Alttaki küçük çizgiler) -->
+      <!-- Carousel Indicators -->
       <div class="carousel-indicators">
         <button
           v-for="(slide, index) in slides"
@@ -17,7 +17,7 @@
         ></button>
       </div>
 
-      <!-- Carousel Inner (Resimlerin olduğu bölüm) -->
+      <!-- Carousel Inner -->
       <div class="carousel-inner">
         <div
           v-for="(slide, index) in slides"
@@ -26,7 +26,6 @@
           :class="{ active: index === 0 }"
         >
           <img :src="slide.src" class="d-block w-100" :alt="slide.alt">
-          <!-- İsteğe bağlı: Resim üzerine yazı eklemek istersen -->
           <!--
           <div class="carousel-caption d-none d-md-block">
             <h5>{{ slide.alt }}</h5>
@@ -35,7 +34,7 @@
         </div>
       </div>
 
-      <!-- Carousel Controls (Sol ve Sağ Oklar) -->
+      <!-- Carousel Controls (le frecce) -->
       <button class="carousel-control-prev" type="button" data-bs-target="#barbieCarousel" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
@@ -51,7 +50,7 @@
 <script setup>
 import { ref } from 'vue';
 
-// Resim listemiz aynı kalıyor. Bootstrap bunu `v-for` ile kullanacak.
+
 const slides = ref([
   { src: '/images/barbie.jpg', alt: 'Bibble - Barbie Fairytopia' },
   { src: '/images/barbie4.jpg', alt: 'Barbie Doll' },
@@ -65,33 +64,30 @@ const slides = ref([
   { src: '/images/barbie7.jpg', alt: 'Barbie Doll' }
 ]);
 
-// Bootstrap Carousel, JavaScript mantığını kendi içinde halleder.
-// Bu yüzden bizim artık currentIndex, nextSlide, prevSlide gibi
-// değişkenlere ve fonksiyonlara ihtiyacımız YOK! Tertemiz bir <script> bölümü.
+
 </script>
 
 <style scoped>
-/* Carousel'in kendisine hafif bir arka plan verelim */
+
 #barbieCarousel {
-  background-color: #fff0f5; /* Çok açık bir pembe */
-  border-radius: 15px; /* Arka planın da kenarları yuvarlak olsun */
-  padding: 10px; /* Resim ve kenarlar arasına boşluk */
+  background-color: #fff0f5; 
+  border-radius: 15px;
+  padding: 10px;
 }
 
 .carousel-item img {
   height: 500px;
-  object-fit: contain; /* DÜZELTME: Artık resmin tamamı görünecek */
-  /* border-radius artık gereksiz, çünkü dış konteynerde var */
+  object-fit: contain; 
 }
 
-/* Küçük ekranlarda yüksekliği azaltalım */
+
 @media (max-width: 768px) {
   .carousel-item img {
     height: 300px;
   }
 }
 
-/* Okların ve indikatörlerin arka plan rengini temamıza uygun hale getirelim */
+
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   background-color: var(--barbie-dark-pink);
